@@ -1,16 +1,14 @@
-﻿
-
 //GitHub API Library
-const { Octokit } = require('@octokit/rest');
+const { Octokit } = require("@octokit/rest");
 
 //Insert your GitHub tokens here in next format ['token1', 'token2', 'token'] 
-const gitTokens = ['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']
-//Insert your GitHub names here in next format ['namel', 'name2', 'name'] 
-const gitNames = ['jasterjitko']
+const gitTokens = ['token1']
 
-﻿
+//Insert your GitHub names here in next format ['namel', 'name2', 'name'] 
+const gitNames = ['name1']
+
 function generateUniqueName () {
-return 'fact_${Math.floor(Math.random() * 150000000)}.txt';
+return `fact_${Math.floor(Math.random() * 150000000)}.txt`;
 }
 
 async function pushRandomCatName (repoOwner, token) {
@@ -45,7 +43,7 @@ pushRandomCatName (repoOwner, token);
 }
 
 // Push file to the repo
-await octokit.rest.repos.createorUpdateFileContents({
+await octokit.rest.repos.createOrUpdateFileContents({
 owner: repoOwner,
 repo: 'randomCatFacts',
 path: randomName,
@@ -58,13 +56,13 @@ console.log('Pushed fact to randomCatFacts');
 console.error('Error pushing fact to randomCatFacts', error);
 }
 }
+
 //Function to start execution 
 function startExecution() {
 gitTokens.forEach((token, index) => {
-pushRandomCatName (gitNames [index], token);
+pushRandomCatName (gitNames[index], token);
 })
 }
 
 //Start execution
 startExecution();
-

@@ -10,11 +10,11 @@ const gitNames = ['jasterjitko']
 
 ﻿
 function generateUniqueName () {
-return 'result_${Math.floor(Math.random() * 150000000)}.txt';
+return 'fact_${Math.floor(Math.random() * 150000000)}.txt';
 }
 
 async function pushRandomCatName (repoOwner, token) {
-const octokot = new Octokit ({auth: token});
+const octokit = new Octokit ({auth: token});
 
 try {
 

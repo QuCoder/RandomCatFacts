@@ -58,7 +58,8 @@ console.log('Pushed fact to randomCatFacts');
 console.error('Error pushing fact to randomCatFacts', error);
 }
 }
-//Function to start execution function startExecution() {
+//Function to start execution 
+function startExecution() {
 gitTokens.forEach((token, index) => {
 pushRandomCatName (gitNames [index], token);
 })
